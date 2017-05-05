@@ -166,6 +166,8 @@ services:
       SPARK_PUBLIC_DNS: localhost
     networks:
     - hadoop
+    ports:
+    - 4040:4040
     volumes:
     - "./data:/tmp/data"
     - "./application:/application"
