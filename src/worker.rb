@@ -1,6 +1,7 @@
 class Worker < Container
-  def initialize(id)
+  def initialize(id, mem_size)
     @id = id
+    @mem_size = mem_size
   end
 
   def command
@@ -18,7 +19,7 @@ class Worker < Container
   def environment
     @environment ||= super.merge({
       spark_worker_cores: 2,
-      spark_worker_memory: '8g',
+      spark_worker_memory: @mem_size,
       spark_worker_port: 8881,
       spark_worker_webui_port: spark_worker_webui_port
     })
